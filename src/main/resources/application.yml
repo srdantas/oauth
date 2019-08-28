@@ -1,0 +1,33 @@
+security:
+  oauth2:
+    client:
+      access-token-validity-seconds: 1800
+      authorized-grant-types: password,refresh_token
+      client-id: datasciencenet
+      client-secret: 1234
+      scope: read,write
+
+spring:
+  application:
+    name: data-science-net-oauth
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+      database: auth
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+        data: DEBUG
