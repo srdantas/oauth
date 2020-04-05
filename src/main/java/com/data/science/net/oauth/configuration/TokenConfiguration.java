@@ -19,7 +19,7 @@ public class TokenConfiguration {
 
   @Bean
   public JwtAccessTokenConverter accessTokenConverter() {
-    val jwtAccessTokenConverter = new JwtAccessTokenConverter();
+    final var jwtAccessTokenConverter = new JwtAccessTokenConverter();
     jwtAccessTokenConverter.setSigningKey("1234");
     return jwtAccessTokenConverter;
   }
