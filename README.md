@@ -55,4 +55,28 @@ With the response:
     "scope": "read write",
     "jti": "2c364a7c-72b9-402c-9f3f-d24ba6c4aeab"
 }
+```
+
+### Check Token
+For check the token content and the data about it, using:
+```bash
+curl -X POST \
+  'http://localhost:8082/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODYwNTE0MTIsInVzZXJfbmFtZSI6InJlbmF0by5kYW50YXMiLCJhdXRob3JpdGllcyI6WyI5NWQyZjZhYy1lNGJhLTQ2ZmEtYjU2Ni0yZGUyZjRiYTRmODkiXSwianRpIjoiOTJjNWFlODMtMDllZi00MzIwLWJjNTMtYzZjYWQ3Y2JjNDRkIiwiY2xpZW50X2lkIjoiZGF0YXNjaWVuY2VuZXQiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.DZpMT-UsQSsc1xZOUAVYAdKSiy60C1Ckf6G8FgyHD3w'
 ```  
+With the response:
+```bash
+{
+    "user_name": "renato.dantas",
+    "scope": [
+        "read",
+        "write"
+    ],
+    "active": true,
+    "exp": 1586051412,
+    "authorities": [
+        "95d2f6ac-e4ba-46fa-b566-2de2f4ba4f89"
+    ],
+    "jti": "92c5ae83-09ef-4320-bc53-c6cad7cbc44d",
+    "client_id": "datasciencenet"
+}
+```
