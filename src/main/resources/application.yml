@@ -3,7 +3,8 @@ security:
     authorization:
       check-token-access: fullyAuthenticated
     client:
-      access-token-validity-seconds: 1800
+      access-token-validity-seconds: 300 # five minutes
+      refresh-token-validity-seconds: 600 # ten minutes
       authorized-grant-types: password,refresh_token
       client-id: datasciencenet
       client-secret: 1234

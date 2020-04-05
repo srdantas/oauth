@@ -30,6 +30,7 @@ public class TokenConfiguration {
     DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
     defaultTokenServices.setTokenStore(tokenStore());
     defaultTokenServices.setSupportRefreshToken(true);
+    defaultTokenServices.setReuseRefreshToken(Boolean.FALSE);
     return defaultTokenServices;
   }
 }
