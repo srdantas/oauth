@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth
+  labels:
+    app: oauth
+  namespace: social-science
+spec:
+  selector:
+    matchLabels:
+      app: oauth
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oauth
+    spec:
+      imagePullSecrets:
+        - name: aws-registry
+      containers:
+        - name: oauth
+          image: 145156591738.dkr.ecr.sa-east-1.amazonaws.com/oauth:latest
+          ports:
+            - containerPort: 8080

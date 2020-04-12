@@ -80,3 +80,24 @@ With the response:
     "client_id": "datasciencenet"
 }
 ```
+
+### Build image
+I use the AWS Elastic Registry for my images.
+
+For login using this:
+```shell script
+aws ecr get-login --region sa-east-1
+```
+
+And build image and push to ecr:
+```shell script
+sudo docker build -t oauth .
+sudo docker tag oauth:latest 145156591738.dkr.ecr.sa-east-1.amazonaws.com/oauth:latest
+sudo docker push 145156591738.dkr.ecr.sa-east-1.amazonaws.com/oauth:latest
+```
+
+### Kubernetes deploy
+```shell script
+kubectl apply -f deploy/deployment.yaml
+kubectl apply -f deploy/service.yaml
+```

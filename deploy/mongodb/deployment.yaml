@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth-mongodb
+  labels:
+    app: oauth-mongodb
+    type: database
+  namespace: social-science
+spec:
+  selector:
+    matchLabels:
+      app: oauth-mongodb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oauth-mongodb
+        type: database
+    spec:
+      imagePullSecrets:
+        - name: docker-hub
+      containers:
+        - name: oauth-mongodb
+          image: mongo:latest
+          ports:
+            - name: oauth-mongodb
+              containerPort: 27017
+          volumeMounts:
+            - name: oauth-mongodb-storage
+              mountPath: /data/db
+      volumes:
+        - name: oauth-mongodb-storage
+          awsElasticBlockStore:
+            volumeID: aws://sa-east-1a/vol-0d8f910bc7719c536
+            fsType: gp2
