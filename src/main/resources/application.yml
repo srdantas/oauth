@@ -16,7 +16,7 @@ spring:
   data:
     mongodb:
       port: 27017
-      host: localhost
+      host: oauth-mongodb.social-science
       database: auth
 
 server:
