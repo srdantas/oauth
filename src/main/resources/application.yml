@@ -11,16 +11,12 @@ security:
       scope: read,write
 
 spring:
-  security:
-    user:
-      name: user
-      password: 1234
   application:
     name: oauth-social-science
   data:
     mongodb:
       port: 27017
-      host: oauth-mongodb.social-science
+      host: localhost
       database: auth
 
 server:
