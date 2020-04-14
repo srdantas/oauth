@@ -55,7 +55,7 @@ spec:
               containerPort: 27017
           volumeMounts:
             - name: oauth-mongodb-storage
-              mountPath: /data/db
+              mountPath: /oauth/data/db
       volumes:
         - name: oauth-mongodb-storage
           persistentVolumeClaim:
